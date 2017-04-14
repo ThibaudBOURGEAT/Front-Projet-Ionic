@@ -1,0 +1,44 @@
+<div class="tabs tabs-dark tabs-icon-top">
+  <a class="tab-item" ui-sref="home">
+    <i class="icon ion-home"></i>
+    Accueil
+  </a>
+  <a class="tab-item active">
+    <i class="icon ion-person"></i>
+    Compte
+  </a>
+  <a class="tab-item" ui-sref="stats">
+    <i class="icon ion-steam"></i>
+    Stats
+  </a>
+</div>
+<ion-view ng-controller="AccountController" class="back">
+	<ion-content>
+	    <div class="list card">
+        <a class="item item-dark item-icon-left" ng-click="usernameAlert()">
+          <i class="icon ion-person"></i>Nom du Compte : {{user.username}}
+        </a>
+      </div>
+      <div class="list card">
+        <a class="item item-dark item-icon-left" ng-click="emailAlert()">
+          <i class="icon ion-at"></i>Email : {{user.email}}
+        </a>
+      </div>
+      <div class="list card">
+        <a class="item item-dark item-icon-left" ng-click="idSteamAlert()">
+          <i class="icon ion-steam"></i>id_steam : {{user.id_steam}}
+        </a>
+      </div>
+      <div class="list card">
+        <a class="item item-dark item-icon-left" ng-click="passwordAlert()">
+          <i class="icon ion-locked"></i>Mot de passe 
+        </a>
+      </div>
+      <div class="row">
+        <div class="col col-25"></div>
+        <button class="button button-balanced col col-50" ng-if="user.admin" ui-sref="register">
+        Pannel admin 
+        </button>
+      </div>
+	</ion-content>
+</ion-view>
