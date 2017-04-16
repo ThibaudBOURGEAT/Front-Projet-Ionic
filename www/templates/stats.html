@@ -9,32 +9,69 @@
   </a>
   <a class="tab-item active">
     <i class="icon ion-steam"></i>
-    Stats
+    CSGO Stats
   </a>
 </div>
-<ion-view class="back">
+<ion-view class="back" ng-controller="StatsController">
 	<ion-content>
-	 <div class="list card">
-
-  <div class="item item-avatar">
-    <img src="mcfly.jpg">
-    <h2>Marty McFly</h2>
-    <p>November 05, 1955</p>
+	<div class="list card">
+    <div class="item item-avatar item-dark">
+      <img src="{{steamAccount.response.players[0].avatarfull}}">
+      <h2 class="light">{{steamAccount.response.players[0].personaname}}</h2>
+      <a href="{{steamAccount.response.players[0].profileurl}}">{{steamAccount.response.players[0].profileurl}}</a>
+    </div>
   </div>
 
-  <div class="item item-body">
-    <img class="full-image" src="delorean.jpg">
-    <p>
-      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-      the content is from a card-body consisting of an image and paragraph text. The footer
-      consists of tabs, icons aligned left, within the card-footer.
-    </p>
-    <p>
-      <a href="#" class="subdued">1 Like</a>
-      <a href="#" class="subdued">5 Comments</a>
-    </p>
+  <div class="row">
+    <div class="col col-5"></div>
+    <div class="col col-40 item item-dark">  
+      <div class="calm"><i class="icon ion-android-locate">
+      </i>victimes :</div>
+      <div class="light">{{steamStats.playerstats.stats[0].value}}</div>
+    </div>
+    <div class="col col-10"></div>
+    <div class="col col-40 item item-dark">
+      <div class="calm"><i class="icon ion-eye">
+      </i>précision :</div>
+      <div class="light">{{precision.toFixed(2)}}%</div>
+    </div>
+    <div class="col col-5"></div>
   </div>
 
-</div>
+  <div class="row">
+    <div class="col col-100">
+    <br>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-5"></div>
+    <div class="col col-40 item item-dark">
+      <div class="calm"><i class="icon ion-clock">
+      </i>temps joué :</div>
+      <div class="light">{{time.toFixed(0)}}H</div>
+    </div>
+    <div class="col col-10"></div>
+    <div class="col col-40 item item-dark">
+      <div class="calm">
+      </i>RATIO V/M :</div>
+      <div class="light">{{ratio.toFixed(2)}}</div>
+    </div>
+    <div class="col col-5"></div>
+  </div>
+
+  <div class="row">
+    <div class="col col-100">
+    <br>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-100 item item-dark">
+      <div class="calm text-center"><i class="icon ion-ios-person-outline">
+      </i>tir dans la tête :</div>
+      <div class="light text-center">{{headshots.toFixed(2)}}%</div>
+    </div>
+  </div>
 	</ion-content>
 </ion-view>

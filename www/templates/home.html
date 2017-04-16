@@ -9,12 +9,26 @@
   </a>
   <a class="tab-item" ui-sref="stats">
     <i class="icon ion-steam"></i>
-    Stats
+    CSGO Stats
   </a>
 </div>
-<ion-view class="back">
+<ion-view class="back" ng-controller="HomeController">
 	<ion-content>
-	
+	 <div class="list">
+      <div class="item item-energized">
+        <h2 class="light text-center">Liste de paris</h2>
+      </div>
+
+      <div class="item item-dark" ng-repeat="pariDisplay in paris">
+        <div class="light text-center"> {{pariDisplay.teamname[0]}}
+          <a class="assertive">  VS  </a>
+          {{pariDisplay.teamname[1]}}
+        </div>
+        <div class="light text-center">
+          Best of : {{pariDisplay.BO}}
+        </div>
+      </div>
+    </div>
 	</ion-content>
 </ion-view>
 
